@@ -1,6 +1,6 @@
 # Shell Permissions
 0- script that cahnges your user ID to betty
-1-
+1- prints the effective userid of the current user
 2-
 3-
 4-
