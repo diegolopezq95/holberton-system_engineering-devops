@@ -1,4 +1,4 @@
-# Shell Permissions
+# 0x01-Shell_Permissions
 
 0- script that cahnges your user ID to betty
 
