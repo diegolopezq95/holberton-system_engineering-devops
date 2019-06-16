@@ -52,3 +52,4 @@
 25- Create a script that decodes acrostics that use the first letter of each line: The ‘decoded’ message has to end with a new line
 
 26- Write a script that parses web servers logs in TSV format as input and displays the 11 hosts or IP addresses which did the most requests: Order by number of requests, most active host or IP at the top
+    /tmp/0x02$ wget http://indeedeng.github.io/imhotep/files/nasa_19950801.tsv
