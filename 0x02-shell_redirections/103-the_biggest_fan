@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -name "*.gif" -print "%f\n"
+tail -n +2 | cut -f1 | sort | uniq -c | sort -nr | head -11 | cut -b9-
