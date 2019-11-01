@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This script display numbers with while and case statement
 
-i=0
+i=1
 while ((i < 21));
 do
     echo "$i"
