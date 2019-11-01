@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script display "Holberton School" 10 times with while
+# This script display "Holberton School" and "Hi" with while
 
 i=0
 while ((i < 10));
