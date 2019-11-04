@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# This script send signal to "7-highlander" process (no kill)
+# This script send signal to 7-highlander process (no kill)
 
 pkill -f "7-highlander"
