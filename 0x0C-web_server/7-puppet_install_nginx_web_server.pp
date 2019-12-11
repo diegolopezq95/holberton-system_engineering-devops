@@ -1,9 +1,7 @@
 # Install Nginx web server (w/ Puppet)
 
-$my_string = '\"server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;\"'
-
 package { 'nginx':
-  ensure => installed,
+  ensure => 'present',
 }
 exec { 'display':
   path    => ['/usr/bin', '/bin'],
@@ -11,9 +9,9 @@ exec { 'display':
 }
 exec { 'change':
   path    => ['/usr/bin', '/bin'],
-  command => 'sed -i "s/server_name _;/$my_string/" /etc/nginx/sites-available/default',
+  command => 'sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/www.google.com\/ permanent;/" /etc/nginx/sites-available/default',
 }
 exec { 'start_nginx':
   path    => ['/usr/bin', '/bin'],
-  command => 'sudo service nginx restart',
+  command => 'sudo service nginx start',
 }
