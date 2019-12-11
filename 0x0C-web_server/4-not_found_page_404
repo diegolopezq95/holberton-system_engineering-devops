@@ -1,15 +1,13 @@
 #!/usr/bin/env bash
 # redirect_me is redirecting to another page
-sudo apt-get -y update
+
+sudo apt-get update
 sudo apt-get -y install nginx
-# sudo ufw allow 'Nginx HTTP'
 echo "Holberton School" | sudo tee /var/www/html/index.html
 new_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;"
-cd /etc/nginx/sites-available/
-sudo sed -i "s/server_name _;/$new_string/" default
+sudo sed -i "s/server_name _;/$new_string/" /etc/nginx/sites-available/default
 echo -e "Ceci n'est pas une page\n" | sudo tee /var/www/html/my_404.html
 new_string_404="server_name _;\n\terror_page 404 \/my_404.html;\n\tlocation = \/my_404.html {\n\t\troot \/var\/www\/html;\n\t\tinternal;\
 \n\t}"
-cd /etc/nginx/sites-available/
-sudo sed -i "s/server_name _;/$new_string_404/" default
+sudo sed -i "s/server_name _;/$new_string_404/" /etc/nginx/sites-available/default
 sudo service nginx restart
