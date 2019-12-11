@@ -6,6 +6,10 @@ exec {'nginx_install':
 }
 exec {'nginx_full':
   path     => '/usr/bin',
-  command  => 'new_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;" && sudo sed -i "s/server_name _;/$new_string/" /etc/nginx/sites-available/default && sudo service nginx restart',
+  command  => 'new_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;" && sudo sed -i "s/server_name _;/$new_string/" /etc/nginx/sites-available/default',
+  provider => shell,
+}
+exec {'nginx_restart':
+  command  => 'sudo service nginx restart',
   provider => shell,
 }
