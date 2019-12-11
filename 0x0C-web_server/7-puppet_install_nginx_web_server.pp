@@ -1,17 +1,11 @@
 # Install Nginx web server (w/ Puppet)
 
-package { 'nginx':
-  ensure => 'present',
+exec {'nginx_install':
+  command  => 'sudo apt-get update && sudo apt-get -y install nginx && echo "Holberton School" | sudo tee /var/www/html/index.html',
+  provider => shell,
 }
-exec { 'display':
-  path    => ['/usr/bin', '/usr/sbin', '/bin'],
-  command => 'echo "Holberton School" | sudo tee /var/www/html/index.html',
-}
-exec { 'change':
-  path    => ['/usr/bin', '/usr/sbin', '/bin'],
-  command => 'sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/www.google.com\/ permanent;/" /etc/nginx/sites-enabled/default',
-}
-exec { 'start_nginx':
-  path    => ['/usr/bin', '/usr/sbin', '/bin'],
-  command => 'sudo service nginx restart',
+exec {'nginx_full':
+  path     => '/usr/bin',
+  command  => 'new_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;" && sudo sed -i "s/server_name _;/$new_string/" /etc/nginx/sites-available/default && sudo service nginx restart',
+  provider => shell,
 }
