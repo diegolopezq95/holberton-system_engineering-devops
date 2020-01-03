@@ -2,4 +2,4 @@
 # fix port 80 issues, and stop nginx
 sudo sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
 sudo service nginx restart
-pkill -n nginx
+pkill nginx
