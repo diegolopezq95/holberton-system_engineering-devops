@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # fix the container - Nginx running as the nginx user
-sudo chmod 666 /etc/nginx/nginx.conf
+sudo chmod u+rw /etc/nginx/nginx.conf
 sed -i "s/#user www-data;/#user www-data;\nuser nginx;/" /etc/nginx/
 sudo sed -i "s/80/8080/" /etc/nginx/sites-enabled/default
 pkill apache2
