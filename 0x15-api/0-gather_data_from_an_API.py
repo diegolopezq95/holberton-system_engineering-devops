@@ -22,7 +22,7 @@ if __name__ == "__main__":
         if task.get("completed") is True:
             n_task_done += 1
     n_task_total = len(todo_list_json)
-    print("Employee {} is done with tasks({}/{})"
+    print("Employee {} is done with tasks({}/{}):"
           .format(employee_name, n_task_done, n_task_total))
     for task in todo_list_json:
         if task.get("completed") is True:
