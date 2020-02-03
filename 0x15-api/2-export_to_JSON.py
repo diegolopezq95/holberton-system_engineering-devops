@@ -2,10 +2,10 @@
 """ This module export data in the JSON format.
 """
 
-import requests
-import sys
 import json
 from collections import OrderedDict
+import requests
+import sys
 
 
 if __name__ == "__main__":
