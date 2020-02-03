@@ -30,5 +30,5 @@ if __name__ == "__main__":
                              "task": task_title,
                              "completed": task_completed}
                 todo_list.append(OrderedDict(todo_dict))
-            dict_of_dicts[str(employee_id)] = todo_list
+            dict_of_dicts[employee_id] = todo_list
         json_file.write(json.dumps(dict_of_dicts))
