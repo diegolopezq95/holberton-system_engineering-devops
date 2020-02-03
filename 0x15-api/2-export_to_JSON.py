@@ -19,11 +19,16 @@ if __name__ == "__main__":
     todo_list_json = r_todo_list.json()
     employee_usrname = employee_json.get("username")
     json_name = "{}.json".format(employee_ID)
+    todo_list = []
+    dict_of_dicts = {}
     with open(json_name, 'w') as json_file:
         for task in todo_list_json:
             task_completed = task.get("completed")
             task_title = task.get("title")
-            todo_dict = {employee_ID: [{"task": task_title,
-                                        "username": employee_usrname,
-                                        "completed": task_completed}]}
-            json_file.write(json.dumps(OrderedDict(sorted(todo_dict.items()))))
+            todo_dict = {"task": task_title,
+                         "completed": task_completed,
+                         "username": employee_usrname
+            }
+            todo_list.append(OrderedDict(todo_dict))
+        dict_of_dicts[employee_ID] = todo_list
+        json_file.write(json.dumps(dict_of_dicts))
