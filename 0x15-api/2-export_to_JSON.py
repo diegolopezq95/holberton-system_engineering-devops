@@ -19,9 +19,9 @@ if __name__ == "__main__":
     todo_list_json = r_todo_list.json()
     employee_usrname = employee_json.get("username")
     json_name = "{}.json".format(employee_ID)
-    todo_list = []
-    dict_of_dicts = {}
     with open(json_name, 'w') as json_file:
+        dict_of_dicts = OrderedDict()
+        todo_list = []
         for task in todo_list_json:
             task_completed = task.get("completed")
             task_title = task.get("title")
