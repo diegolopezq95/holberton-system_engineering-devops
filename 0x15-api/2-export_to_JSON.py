@@ -27,8 +27,7 @@ if __name__ == "__main__":
             task_title = task.get("title")
             todo_dict = {"task": task_title,
                          "completed": task_completed,
-                         "username": employee_usrname
-            }
+                         "username": employee_usrname}
             todo_list.append(OrderedDict(todo_dict))
         dict_of_dicts[employee_ID] = todo_list
         json_file.write(json.dumps(dict_of_dicts))
